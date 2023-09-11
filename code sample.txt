@@ -1,0 +1,29 @@
+load handel;    % loads the signal into y
+N = length(y);
+T = 2^12; 
+
+filt_opt = default_filter_options('audio', T);
+Wop = wavelet_factory_1d(N, filt_opt);
+S = scat(y, Wop);
+[Wop,filters] = wavelet_factory_1d(N, filt_opt);
+figure;
+for m = 1:2
+    subplot(1,2,m);
+    hold on; 
+    for k = 1:length(filters{m}.psi.filter)
+        plot(realize_filter(filters{m}.psi.filter{k}, N)); 
+    end
+    hold off;
+    ylim([0 1.5]);
+    xlim([1 5*N/8]);
+end
+filt_opt.Q = [8 8];
+filt_opt.J = T_to_J(T, filt_opt);
+S{1+m}.signal{k};
+j1 = 23;
+scattergram(S{2},[],S{3},j1);
+S = renorm_scat(S);
+S = log_scat(S);
+ 
+scattergram(S{2},[],S{3},j1);
+[S_table, meta] = format_scat(S);
