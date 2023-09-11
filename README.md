@@ -1,61 +1,7 @@
-What's new in ScatNet v0.2 :
-* More efficient wavelet transforms with the cascade algorithm : see
-core/wavelet_factory_2d_pyramid.m
-* Frequency transposition invariance : see core/scat_freq.m
-* Roto-translation invariance : see core/wavelet_factory_3d_pyramid.m
-* Inverse scattering transform for 1D : see reconstruction/
-* Selesnick wavelets of compact support : see
-filters/selesnick_filter_bank_1d.
-* Improved display : see display/
-* New utility functions for classification : see scatutils/
-* A comprehensive documentation PDF file : see doc/
-* 15 demos : see demo/
-* Standard headers for all functions
-* The MATLAB Signal Processing Toolbox is no longer required
-
-
-ScatNet v0.2
-------------
-
-ScatNet is a MATLAB library for scattering networks.
-
-See our homepage of the project for documentation, tutorials, and bibliography
-
-http://www.di.ens.fr/data/software/scatnet/
-
-Contact
--------
-
-For any enquiry, please write to the brand new e-mail address of our team :
-scatnet[AT]di[DOT]ens[DOT]fr
-where [AT] and [DOT] must be replaced by the characters @ and . respectively.
-
-Install ScatNet
----------------
-
-- launch `addpath_scatnet` from matlab shell
-
-[optional] : add the following two lines to your startup.m file
-so that matlab does the addpath automatically when it starts: 
-
-
-    addpath /path/to/scatnet;
-    addpath_scatnet;
-
-Quickstarts
------------
-
-Use ScatNet with audio signals:
-http://www.di.ens.fr/data/software/scatnet/quickstart-audio/
-
-Use ScatNet with images:
-http://www.di.ens.fr/data/software/scatnet/quickstart-image/
-
-Team
--------
-
-Developers : Laurent Sifre, Joakim Andén, Edouard Oyallon, Michel Kapoko, Vincent Lostanlen.
-
-Beta-testers : Irène Waldspurger, Guy Wolf, Matthew Hirn.
-
-Many thanks to : Stéphane Mallat, our team leader ; Ivan Selesnick (NYU), of which the filters/selesnick/ package appears courtesy ; Joan Bruna (NYU) for his help.
+Thsi repository has the MATLAB code used to get joint t-f scattering coeffients for biomedical audio signal with some pathological conditions. 
+The main matlab file is “scattering may.m” and its supporting folder is scanet-2.0. The supporting files are also copied in this folder. This main file has all the
+sections and its functionality explained in the code file itself.
+There is an additional file "scatteringappermay.m" that can also be used as a main file, this MATLAB code has option to select the hyperparameters for this work such as: 
+T: with in class invariacne, typically in millisecs for speech and longer for environmental sounds
+F: No. of octaves required to model audio signal
+Q: Quality factor, typically is [8,1], but mutable
